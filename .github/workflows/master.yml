@@ -1,0 +1,19 @@
+name: Master CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+
+jobs:
+  build_push_image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Print Version
+        run: echo "${GITHUB_SHA}"
+      - run: docker login --username rossmaclean --password ${{ secrets.DOCKERHUB_TOKEN }}
+      - run: docker build -f build/Dockerfile -t rossmaclean/fahclient-arm64:${GITHUB_SHA} .
+      - run: docker push rossmaclean/fahclient-arm64:${GITHUB_SHA}
