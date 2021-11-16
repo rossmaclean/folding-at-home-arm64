@@ -7,11 +7,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rossmaclean/folding-at-home-arm64-docker.git']]]
-            }
-        }
         stage('Docker Login') {
             steps {
                 sh 'docker login --username rossmaclean --password $DOCKERHUB_TOKEN'
