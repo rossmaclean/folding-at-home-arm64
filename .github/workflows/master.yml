@@ -20,4 +20,3 @@ jobs:
         run: echo "${GITHUB_SHA::8}"
       - run: docker login --username rossmaclean --password ${{ secrets.DOCKERHUB_TOKEN }}
       - run: docker buildx build --push --platform linux/arm64 -t rossmaclean/fahclient-arm64:${GITHUB_SHA::8} .
-      - run: docker push rossmaclean/fahclient-arm64:${GITHUB_SHA::8}
