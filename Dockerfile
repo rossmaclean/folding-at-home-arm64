@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt update && apt -y install \
+RUN apt-get update && apt-get -y install \
   curl \
   expect
 
