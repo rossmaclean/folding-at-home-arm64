@@ -12,4 +12,6 @@ ADD install-fah-with-expect .
 RUN dpkg -x /fahclient.deb /app
 
 EXPOSE 7396
+RUN pwd
+RUN ls
 CMD FAHClient --config /app/config.xml
