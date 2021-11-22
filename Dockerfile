@@ -1,7 +1,5 @@
 FROM ubuntu:latest
 
-WORKDIR /app
-
 RUN apt-get update && apt-get -y install \
   curl \
   expect
@@ -11,6 +9,4 @@ ADD install-fah-with-expect .
 RUN expect install-fah-with-expect
 
 EXPOSE 7396
-RUN pwd
-RUN ls
-CMD FAHClient --config /app/config.xml
+CMD FAHClient --config /etc/fahclient/config.xml
