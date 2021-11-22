@@ -6,7 +6,7 @@ set pass ""
 set res "2"
 set auto "no"
 
-spawn dpkg -i /fahclient.deb
+spawn dpkg -i /fah/fahclient.deb
 
 # Look for user prompt
 expect "*?ser*" 
